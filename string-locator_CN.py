@@ -52,10 +52,9 @@ while True:
             print("第 "+str(line)+" 行已找到.\n")
             print("行数: "+str(line))
             print("该行内容: "+theLine)
-            break
+            line = line + 1
         elif line == count:
             print("未找到该字符串.")
             break
         else:
-            print("第 "+str(line)+" 行未找到...")
             line = line + 1
