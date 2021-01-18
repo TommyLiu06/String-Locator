@@ -5,28 +5,28 @@
 import linecache
 import os
 
-
 # 确定当前操作系统路径分隔符
 osName = os.name
 if osName == "posix":
-	pathSeparator = "/"
+    pathSeparator = "/"
 elif osName == "nt":
-	pathSeparator = "\\"
+    pathSeparator = "\\"
+
 
 # 主程序
-while True:
+def main():
     cwd = os.getcwd()+pathSeparator
     print("当前绝对路径: "+cwd)
     filePath = input("输入文件路径(绝对/相对): ")
     # 判断是否绝对路径.如果否,转换为绝对路径
-    while os.path.isabs(filePath) == False:
+    while not(os.path.isabs(filePath)):
         filePath = cwd+filePath
         # 判断路径是否存在.如果否,重新输入
-        while os.path.exists(filePath) == False:
+        while not(os.path.exists(filePath)):
             filePath = input("文件未找到.\n"
             	             "请重新输入文件路径: ")
             # 判断路径是否文件.如果否,重新输入
-            while os.path.isfile(filePath) == False:
+            while not(os.path.isfile(filePath)):
                 filePath = input("输入的路径不是文件.\n请重新输入文件路径: ")
 
             else:
@@ -54,7 +54,11 @@ while True:
             print("该行内容: "+theLine)
             line = line + 1
         elif line == count:
-            print("未找到该字符串.")
+            print("完成.")
             break
         else:
             line = line + 1
+
+
+if __name__ == "__main__":
+    main()
