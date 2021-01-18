@@ -17,7 +17,10 @@ elif osName == "nt":
 def main():
     cwd = os.getcwd()+pathSeparator
     print("当前绝对路径: "+cwd)
-    filePath = input("输入文件路径(绝对/相对): ")
+    filePath = input("输入文件相对或绝对路径(输入q退出): ")
+    if filePath == 'q':
+        exit()
+
     # 判断是否绝对路径.如果否,转换为绝对路径
     while not(os.path.isabs(filePath)):
         filePath = cwd+filePath
@@ -61,4 +64,5 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    while True:
+        main()
