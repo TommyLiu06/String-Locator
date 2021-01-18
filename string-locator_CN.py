@@ -23,8 +23,8 @@ def main():
         filePath = cwd+filePath
         # 判断路径是否存在.如果否,重新输入
         while not(os.path.exists(filePath)):
-            filePath = input("文件未找到.\n"
-            	             "请重新输入文件路径: ")
+            filePath = input("文件未找到.\n\
+                            请重新输入文件路径: ")
             # 判断路径是否文件.如果否,重新输入
             while not(os.path.isfile(filePath)):
                 filePath = input("输入的路径不是文件.\n请重新输入文件路径: ")
@@ -34,14 +34,14 @@ def main():
         else:
             pass
     else:
-        pass 
+        pass
     string = input("输入要查找的字符串: ")
 
     # 获取文件行数
-    count=0
+    count = 0
     f = open(filePath, "r")
     for line in f.readlines():
-        count=count+1
+        count = count+1
     f.close()
 
     # 开始查找
